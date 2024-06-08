@@ -41,7 +41,7 @@ toast.error(error.message);
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-5 ">
-      <h1 className=" p-5 text-3xl pb-20">Sign up</h1>
+      <h1 className=" p-5 text-3xl pb-20">{loading ? "Processing" : "SignUp"}</h1>
       <div className="p-1 ">
         <label htmlFor="username">username</label>
         <input
