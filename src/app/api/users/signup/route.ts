@@ -32,9 +32,9 @@ const newUser = new User({
     password: hashedPassword,
 });
 const savedUser = await newUser.save();
-console.log(savedUser);
+console.log(savedUser); 
 return NextResponse.json({
-    message: "User created successfully",
+    message: "User created successfully", 
     success: true,
     savedUser
 });
