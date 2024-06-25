@@ -3,6 +3,8 @@ import User from "@/models/userModel"
 import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
+import { sendMail } from "@/helpers/mailer";
+import bcryptjs from 'bcryptjs';
 
 
 Connect();
@@ -33,6 +35,10 @@ const newUser = new User({
 });
 const savedUser = await newUser.save();
 console.log(savedUser); 
+
+//send email verification
+
+await sendMail({email, emailType: "VERIFY", userId: savedUser._id});
 return NextResponse.json({
     message: "User created successfully", 
     success: true,
